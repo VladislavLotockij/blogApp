@@ -29,30 +29,43 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Название</th>
-                                </tr>
-                                </thead>
-                                @foreach($categories as $category)
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th colspan="3" class="text-center"></th>
+                            </tr>
+                            </thead>
+                            @foreach($categories as $category)
                                 <tbody>
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->title}}</td>
-                                    <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="far fa-eye"></i></a></td>
-                                    <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="fas fa-pencil-alt"></i></a></td>
+                                    <td class="text-center">{{$category->id}}</td>
+                                    <td class="text-center">{{$category->title}}</td>
+                                    <td class="text-center"><a href="{{ route('admin.category.show', $category->id) }}"><i
+                                                class="far fa-eye"></i></a></td>
+                                    <td class="text-center"><a href="{{ route('admin.category.edit', $category->id) }}"
+                                           class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                    <td class="text-center">
+                                        <form action="{{ route('admin.category.delete', $category->id) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="border-0 bg-transparent">
+                                                <i class="fas fa-trash text-danger" role="button"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 </tbody>
-                                @endforeach
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
+                            @endforeach
+                        </table>
                     </div>
+                    <!-- /.card-body -->
                 </div>
+            </div>
         </section>
     </div><!-- /.container-fluid -->
     </section>
