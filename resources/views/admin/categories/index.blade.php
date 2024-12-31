@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Категории</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -23,13 +23,34 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="col-1">
+                <div class="col-1" class="mb-3">
                     <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Создать</a>
                 </div>
-                <div class="col-12">
-                    Категории
-                </div>
             </div>
+            <div class="row">
+                <div class="col-6">
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Название</th>
+                                </tr>
+                                </thead>
+                                @foreach($categories as $category)
+                                <tbody>
+                                <tr>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->title}}</td>
+                                </tr>
+                                </tbody>
+                                @endforeach
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
         </section>
     </div><!-- /.container-fluid -->
     </section>
