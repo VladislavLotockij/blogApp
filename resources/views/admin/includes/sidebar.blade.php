@@ -3,7 +3,7 @@
     <div class="sidebar">
         <ul class="pt-3 nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.category.create') }}" class="nav-link">
                     <i class="navbar-icon fa-duotone fa-solid fa-bars"></i>
                     <p>
                         Категории
