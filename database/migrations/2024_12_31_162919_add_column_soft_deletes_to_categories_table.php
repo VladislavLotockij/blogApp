@@ -13,7 +13,7 @@ class AddColumnSoftDeletesToCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('category', function (Blueprint $table) {
             $table->softDeletes();
         });
     }
@@ -25,7 +25,7 @@ class AddColumnSoftDeletesToCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('category', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }
