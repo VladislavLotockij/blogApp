@@ -27,16 +27,24 @@
                     <form action="{{ route('admin.post.store') }}" method="POST" class="w-25">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название поста">
+                            <input type="text" class="form-control" name="title" placeholder="Название поста" value="{{old('title')}}">
                             @error('title')
-                                <div class="text-danger">Это обезательное поле</div>
+                            <div class="text-danger">Это обезательное поле</div>
                             @enderror
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Добавить">
+                        <div class="form-group">
+                            <textarea id="summernote" name="content" value="{{old('content')}}"></textarea>
+                            @error('content')
+                            <div class="text-danger">Это обезательное поле</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Добавить">
+                        </div>
+                        <div class="col-3 mt-4">
+                            <a href="{{ route('admin.post.index') }}" class="btn btn-block btn-primary">Вернуться</a>
+                        </div>
                     </form>
-                    <div class="col-3 mt-4">
-                        <a href="{{ route('admin.post.index') }}" class="btn btn-block btn-primary">Вернуться</a>
-                    </div>
                 </div>
             </div>
         </section>
