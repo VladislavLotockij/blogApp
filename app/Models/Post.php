@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    //TODO: Add use SoftDelete;
 
     protected $table = 'posts';
     protected $guarded = false;
