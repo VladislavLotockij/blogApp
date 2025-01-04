@@ -13,16 +13,17 @@ class PostService
     {
         try {
             DB::beginTransaction();
-            $tagsIds = $data['tag_ids'];
-            unset($data['tag_ids']);
-            if(isset($data['preview_image'])) {
-            	$data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
+            if(isset($data['tag_ids'])) {
+                $tagsIds = $data['tag_ids'];
+                unset($data['tag_ids']);
             }
-            if(isset($data['main_image'])) {
-            	$data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
-            }
+            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
+            $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+            
             $post = Post::firstOrCreate($data);
-            $post->tags()->attach($tagsIds);
+            if(isset($tagsIds)) {
+                $post->tags()->attach($tagsIds);
+            }
             DB::commit();
         } catch(Exception $e) {
             DB::rollBack();
@@ -34,18 +35,18 @@ class PostService
     {
         try {
             DB::beginTransaction();
-            $tagsIds = $data['tag_ids'];
-            unset($data['tag_ids']);
+            if(isset($data['tag_ids'])) {
+                $tagsIds = $data['tag_ids'];
+                unset($data['tag_ids']);
+            }
             
-            if (isset($data['preview_image'])) {
-                $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-            }
-            if (isset($data['main_image'])) {
-                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
-            }
+            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
+            $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
         
             $post->update($data);
-            $post->tags()->sync($tagsIds);
+            if(isset($tagsIds)) {
+                $post->tags()->sync($tagsIds);
+            }
             DB::commit();
             return $post;
         } catch(Exception $e) {

@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="title" placeholder="Название поста" value="{{ $post->title }}">
                             @error('title')
-                            <div class="text-danger">Это обезательное поле</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -54,7 +54,7 @@
                               </div>
                             </div>
                             @error('preview_image')
-                            <div class="text-danger">Это обезательное поле</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                           </div>
                           <div class="form-group">
@@ -72,7 +72,7 @@
                               </div>
                             </div>
                             @error('main_image')
-                            <div class="text-danger">Это обезательное поле</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                           </div>
                           <div class="col-sm-6">
@@ -86,6 +86,9 @@
                                     >{{ $category->title }}</option>
                                 @endforeach
                               </select>
+                              @error('category_id')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             </div>
                           </div>
                           <div class="form-group">
@@ -95,6 +98,9 @@
                                 <option {{ is_array($post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : ''}} value="{{ $tag->id}}">{{ $tag->title}}</option>
                                 @endforeach
                             </select>
+                            @error('tag_ids')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                           </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Обновить">
