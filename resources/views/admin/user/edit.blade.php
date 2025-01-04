@@ -33,6 +33,12 @@
                                 <div class="text-danger">Это обезательное поле</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" placeholder="Email" value="{{$user->email}}">
+                            @error('email')
+                                <div class="text-danger">Это обезательное поле</div>
+                            @enderror
+                        </div>
                             <input type="submit" class="btn btn-primary" value="Обновить">
                     </form>
                     <div class="col-3 mt-4">
