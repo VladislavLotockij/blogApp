@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+    <div class="wrapper">
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
@@ -30,14 +30,23 @@
     </div>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
-    </nav>
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <div class="col-12 d-flex justify-content-between">
+                <!-- Left navbar links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <form action="{{ route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary">Logout</button>
+                        </form>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
