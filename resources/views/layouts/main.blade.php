@@ -47,6 +47,12 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav">
+                        <form action="{{ route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-primary">Logout</button>
+                        </form>
+                    </ul>
                     <ul class="navbar-nav mt-2 mt-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
