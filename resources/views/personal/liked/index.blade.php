@@ -23,7 +23,7 @@
   <section class="content">
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
-      <div class="row">
+      <div class="row">v
         <div class="card-body table-responsive p-0">
           <table class="table table-hover text-nowrap">
               <thead>

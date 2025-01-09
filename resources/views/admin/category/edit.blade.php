@@ -24,20 +24,22 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="col-12">
-                    <form action="{{ route('admin.category.update', $category->id) }}" method="POST" class="w-25">
-                        @csrf
-                        @method('PATCH')
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название категории" value="{{$category->title}}">
-                            @error('title')
-                                <div class="text-danger">Это обезательное поле</div>
-                            @enderror
+                <div class="row">
+                    <div class="col-12">
+                        <form action="{{ route('admin.category.update', $category->id) }}" method="POST" class="w-25">
+                            @csrf
+                            @method('PATCH')
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="title" placeholder="Название категории" value="{{$category->title}}">
+                                @error('title')
+                                    <div class="text-danger">Это обезательное поле</div>
+                                @enderror
+                            </div>
+                                <input type="submit" class="btn btn-primary" value="Обновить">
+                        </form>
+                        <div class="col-3 mt-4">
+                            <a href="{{ route('admin.category.index') }}" class="btn btn-block btn-primary">Вернуться</a>
                         </div>
-                            <input type="submit" class="btn btn-primary" value="Обновить">
-                    </form>
-                    <div class="col-3 mt-4">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-block btn-primary">Вернуться</a>
                     </div>
                 </div>
             </div>

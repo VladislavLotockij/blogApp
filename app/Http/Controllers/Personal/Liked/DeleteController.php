@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Personal\Liked;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\PostUserLike;
 
 class DeleteController extends Controller
 {
