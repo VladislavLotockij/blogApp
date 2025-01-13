@@ -17,11 +17,11 @@
                     </a>
                 </div>
                 @endforeach
+            </div> 
             <div class="row">
                 <div class="m-auto">
                     {{ $posts->links() }}
                 </div>
-            </div>
             </div>
         </section>
         <div class="row">
