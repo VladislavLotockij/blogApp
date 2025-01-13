@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 //test test test
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('main.index');
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
